@@ -1,8 +1,10 @@
 /* Add your custom styles here */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Lora', serif;
   margin: 0;
   padding: 0;
+  background: url('path/to/chessboard-pattern.png') no-repeat center center fixed;
+  background-size: cover;
 }
 
 .toolbar {
@@ -15,12 +17,63 @@ body {
 
 .content {
   padding: 20px;
+  text-align: center;
 }
 
 h1 {
-  color: #1976d2;
+  color: #d4af37;
 }
 
 p {
   font-size: 16px;
+}
+
+.chess-piece {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  cursor: pointer;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.chess-piece:hover {
+  transform: translateY(-10px);
+  opacity: 0.8;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin: 10px;
+  padding: 20px;
+  width: 200px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+footer a {
+  color: #d4af37;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
