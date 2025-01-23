@@ -3,7 +3,7 @@ body {
   font-family: 'Lora', serif;
   margin: 0;
   padding: 0;
-  background: url('path/to/chessboard-pattern.png') no-repeat center center fixed;
+  background: url('') no-repeat center center fixed;
   background-size: cover;
 }
 
