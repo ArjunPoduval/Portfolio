@@ -1,0 +1,78 @@
+@use '../../../styles/variables' as v;
+
+:host { display: block; }
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+
+  @media (max-width: v.$bp-tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.edu-card {
+  background: v.$color-surface;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius;
+  padding: 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: border-color v.$transition, box-shadow v.$transition, transform v.$transition;
+
+  &:hover {
+    border-color: rgba(v.$color-primary, 0.3);
+    box-shadow: v.$glow;
+    transform: translateY(-2px);
+  }
+}
+
+.edu-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: v.$radius-sm;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: v.$color-primary;
+  flex-shrink: 0;
+}
+
+.cert-icon {
+  background: rgba(110, 231, 183, 0.1);
+  color: v.$color-secondary;
+  border-color: rgba(110, 231, 183, 0.2);
+}
+
+.edu-degree {
+  font-size: 1rem;
+  font-weight: 700;
+  color: v.$color-text;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.edu-institution {
+  font-size: 0.9rem;
+  color: v.$color-primary;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.edu-year {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: v.$color-dim;
+  padding: 2px 8px;
+  background: rgba(100, 116, 139, 0.15);
+  border-radius: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edu-card:hover { transform: none; }
+}

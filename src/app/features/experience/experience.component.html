@@ -1,0 +1,24 @@
+<section id="experience" class="section section-alt" aria-labelledby="experience-heading">
+  <div class="container">
+    <h2 id="experience-heading" class="section-title">Experience</h2>
+
+    <div class="company-header" appFadeIn>
+      <div class="company-info">
+        <span class="company-name">CareStack&#8482;</span>
+        <span class="company-role">Software Engineer</span>
+      </div>
+      <div class="company-meta">
+        <span class="date-badge">Jul 2023 – Present</span>
+        <span class="location">Thiruvananthapuram, Kerala</span>
+      </div>
+    </div>
+
+    <ol class="timeline" aria-label="Career timeline at CareStack">
+      @for (item of experiences; track item.squad) {
+        <li appFadeIn>
+          <app-timeline-item [item]="item" />
+        </li>
+      }
+    </ol>
+  </div>
+</section>

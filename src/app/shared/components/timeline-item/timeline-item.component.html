@@ -1,0 +1,18 @@
+<div class="timeline-dot" aria-hidden="true"></div>
+<div class="timeline-card" [class.current-card]="item.badge === 'current'">
+  <h3 class="tl-title">
+    {{ item.squad }}
+    @if (item.badge === 'solo') {
+      <span class="badge badge-solo">Solo</span>
+    }
+    @if (item.badge === 'current') {
+      <span class="badge badge-current">Current</span>
+    }
+  </h3>
+  <p class="tl-desc">{{ item.description }}</p>
+  <div class="tl-tags" aria-label="Technologies used">
+    @for (tag of item.tags; track tag) {
+      <app-skill-badge [label]="tag" />
+    }
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<nav id="navbar" [class.scrolled]="isScrolled" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a class="nav-logo" routerLink="/home" aria-label="Arjun V V — back to top">
+      AV<span class="accent">.</span>
+    </a>
+
+    <button
+      class="hamburger"
+      [class.open]="menuOpen"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen"
+      aria-controls="nav-links"
+      aria-label="Toggle navigation menu"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+
+    <ul class="nav-links" id="nav-links" [class.open]="menuOpen" role="list">
+      <li><a routerLink="/home"       routerLinkActive="active" (click)="closeMenu()">Home</a></li>
+      <li><a routerLink="/about"      routerLinkActive="active" (click)="closeMenu()">About</a></li>
+      <li><a routerLink="/experience" routerLinkActive="active" (click)="closeMenu()">Experience</a></li>
+      <li><a routerLink="/skills"     routerLinkActive="active" (click)="closeMenu()">Skills</a></li>
+      <li><a routerLink="/education"  routerLinkActive="active" (click)="closeMenu()">Education</a></li>
+      <li><a routerLink="/contact"    routerLinkActive="active" (click)="closeMenu()">Contact</a></li>
+    </ul>
+  </div>
+</nav>

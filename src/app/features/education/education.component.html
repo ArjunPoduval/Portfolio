@@ -1,0 +1,38 @@
+<section id="education" class="section section-alt" aria-labelledby="education-heading">
+  <div class="container">
+    <h2 id="education-heading" class="section-title">Education &amp; Certifications</h2>
+    <div class="edu-grid">
+
+      <div class="edu-card" appFadeIn>
+        <div class="edu-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+        <div class="edu-info">
+          <h3 class="edu-degree">{{ education.degree }}</h3>
+          <p class="edu-institution">{{ education.institution }}</p>
+          <span class="edu-year">{{ education.year }}</span>
+        </div>
+      </div>
+
+      @for (cert of certifications; track cert.name) {
+        <div class="edu-card" appFadeIn>
+          <div class="edu-icon cert-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" focusable="false">
+              <circle cx="12" cy="8" r="6"/>
+              <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+            </svg>
+          </div>
+          <div class="edu-info">
+            <h3 class="edu-degree">{{ cert.name }}</h3>
+            <p class="edu-institution">{{ cert.issuer }}</p>
+            <span class="edu-year">{{ cert.date }}</span>
+          </div>
+        </div>
+      }
+
+    </div>
+  </div>
+</section>

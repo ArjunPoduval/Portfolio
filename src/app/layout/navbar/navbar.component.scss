@@ -1,0 +1,136 @@
+@use '../../../styles/variables' as v;
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: v.$nav-h;
+  z-index: 100;
+  transition: background-color v.$transition, box-shadow v.$transition;
+
+  &.scrolled {
+    background-color: rgba(10, 15, 30, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 1px 0 v.$color-border;
+  }
+}
+
+.nav-inner {
+  max-width: v.$container-w;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: v.$color-text;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  transition: color v.$transition;
+
+  &:hover, &:focus-visible { color: v.$color-primary; }
+
+  .accent { color: v.$color-primary; }
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+
+  a {
+    color: v.$color-muted;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: color v.$transition;
+    position: relative;
+    padding-bottom: 2px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: v.$color-primary;
+      transition: width v.$transition;
+    }
+
+    &:hover, &.active, &:focus-visible {
+      color: v.$color-primary;
+      outline: none;
+    }
+
+    &:hover::after, &.active::after, &:focus-visible::after {
+      width: 100%;
+    }
+  }
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 101;
+
+  span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: v.$color-text;
+    border-radius: 2px;
+    transition: transform v.$transition, opacity v.$transition;
+  }
+
+  &.open {
+    span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+}
+
+@media (max-width: v.$bp-tablet) {
+  :host {
+    --nav-h-mobile: 56px;
+  }
+
+  #navbar { height: 56px; }
+
+  .hamburger { display: flex; }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(280px, 80vw);
+    height: 100vh;
+    background: rgba(13, 20, 38, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    z-index: 99;
+    border-left: 1px solid v.$color-border;
+    transition: right v.$transition;
+
+    &.open { right: 0; }
+
+    a { font-size: 1.1rem; }
+  }
+}
