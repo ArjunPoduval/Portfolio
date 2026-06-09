@@ -1,0 +1,49 @@
+@use '../../../styles/variables' as v;
+
+:host { display: block; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+
+  @media (max-width: v.$bp-tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skill-group {
+  background: v.$color-surface;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius;
+  padding: 22px 24px;
+  transition: border-color v.$transition, box-shadow v.$transition;
+
+  &:hover {
+    border-color: rgba(v.$color-primary, 0.3);
+    box-shadow: v.$glow;
+  }
+}
+
+.skill-group-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: v.$color-dim;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  svg {
+    color: v.$color-primary;
+    flex-shrink: 0;
+  }
+}
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}

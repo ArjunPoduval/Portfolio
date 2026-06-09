@@ -1,0 +1,52 @@
+@use '../../../styles/variables' as v;
+
+:host { display: block; }
+
+.contact-wrapper {
+  max-width: 560px;
+}
+
+.contact-message {
+  font-size: 1.15rem;
+  color: v.$color-muted;
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: v.$color-muted;
+  text-decoration: none;
+  font-size: 0.98rem;
+  font-weight: 500;
+  padding: 16px 20px;
+  background: v.$color-surface;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-sm;
+  transition: border-color v.$transition, color v.$transition, background-color v.$transition, transform v.$transition;
+
+  &:hover, &:focus-visible {
+    border-color: rgba(v.$color-primary, 0.4);
+    color: v.$color-primary;
+    background-color: v.$color-surface-2;
+    transform: translateX(4px);
+    outline: none;
+  }
+
+  svg {
+    color: v.$color-primary;
+    flex-shrink: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-item:hover, .contact-item:focus-visible { transform: none; }
+}
